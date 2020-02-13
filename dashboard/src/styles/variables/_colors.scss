@@ -1,0 +1,14 @@
+@function color($key) {
+    @if map-has-key($map: $colors, $key: $key) {
+        @return map-get($map: $colors, $key: $key);
+    }
+}
+
+// Color names taken from: http://chir.ag/projects/name-that-color/
+$colors: (
+    rose: #E5007D,
+    black: #000000,
+    white: #ffffff,
+    red: #bb3535,
+    grey: #888
+);

@@ -1,0 +1,24 @@
+.dashboard-group {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: {
+        radius: 2 * $magic-number;
+        width: 0.25 * $magic-number;
+        style: solid;
+        color: color(rose);
+    }
+
+    &__error-message {
+        font: {
+            size: 1.25em;
+            weight: bold;
+        }
+
+        color: color(white);
+        background-color: color(rose);
+    }
+}
