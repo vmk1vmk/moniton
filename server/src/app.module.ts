@@ -7,9 +7,9 @@ import { GithubStatusModule } from './github-status';
 @Module({
     imports: [
         ServeStaticModule.forRoot({
-            rootPath: join(__dirname, '..', 'test-cockpit')
+            rootPath: join(__dirname, '..', 'test-cockpit'),
         }),
-        GithubStatusModule
+        GithubStatusModule,
     ],
     providers: [],
 })
