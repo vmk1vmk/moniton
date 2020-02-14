@@ -1,7 +1,16 @@
 import { Module } from '@nestjs/common';
-import { DataSourcesModule } from './data-sources/data-sources.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+
+import { join } from 'path';
+import { GithubStatusModule } from './github-status';
 
 @Module({
-    imports: [DataSourcesModule],
+    imports: [
+        ServeStaticModule.forRoot({
+            rootPath: join(__dirname, '..', 'test-cockpit')
+        }),
+        GithubStatusModule
+    ],
+    providers: [],
 })
 export class AppModule {}
