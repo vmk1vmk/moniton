@@ -2,7 +2,6 @@
   "private": true,
   "license": "MIT",
   "workspaces": [
-    "server",
-    "dashboard"
+    "server"
   ]
 }

@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  pull_request:
+    branches: 
+      - master
+    types: [opened, reopened, synchronized]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.14.1'
+    - uses: action
+      
+    - name: Install dependencies
+      run: yarn --frozen-lockfile
+      
+    - name: Lint
+      run: yarn workspaces run lint
+      
+    - name: Test
+      run: yarn workspaces run test
