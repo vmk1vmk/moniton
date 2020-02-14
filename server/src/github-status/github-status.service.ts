@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { PollingService } from '../../polling';
+import { PollingService } from '../polling';
 import { pluck } from 'rxjs/operators';
 
 type Observable<Data> = import('rxjs').Observable<Data>;

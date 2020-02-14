@@ -1,12 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PollingService, PollingConfig } from '../../polling/polling.service';
+import { PollingService, PollingConfig } from '../polling/polling.service';
 import {
     GithubStatusService,
     GithubStatus,
     GithubStatusApiResponse,
 } from './github-status.service';
 import { of, Subject } from 'rxjs';
-import { PollingModule } from '../../polling';
+import { PollingModule } from '../polling';
 
 const EMPTY_GITHUB_STATUS: GithubStatus = {
     indicator: 'none',
