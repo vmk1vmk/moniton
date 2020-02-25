@@ -39,7 +39,7 @@ const OTHER_GITHUB_STATUS_API_RESPONSE: GithubStatusApiResponse = {
 
 const RATE_LIMIT_TIMEOUT_MS = 720;
 
-describe('GithubStatusService', () => {
+describe('GithubStatus Service', () => {
     let testingModule: TestingModule;
     let pollingService: PollingService;
     let githubStatusService: GithubStatusService;

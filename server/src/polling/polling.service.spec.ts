@@ -17,7 +17,7 @@ const POLLING_CONFIG: PollingConfig = {
 
 const MARBLE_TEST_DATA = { a: 'a', b: 'b', c: 'c' };
 
-describe('PollingService', () => {
+describe('Polling Service', () => {
     let testingModule: TestingModule;
     let httpService: HttpService;
     let pollingService: PollingService;

@@ -1,16 +1,8 @@
-import { Module } from '@nestjs/common';
-import { ServeStaticModule } from '@nestjs/serve-static';
-
-import { join } from 'path';
 import { GithubStatusModule } from './github-status';
+import { Module } from '@nestjs/common';
 
 @Module({
-    imports: [
-        ServeStaticModule.forRoot({
-            rootPath: join(__dirname, '..', 'test-cockpit'),
-        }),
-        GithubStatusModule,
-    ],
+    imports: [GithubStatusModule],
     providers: [],
 })
 export class AppModule {}
