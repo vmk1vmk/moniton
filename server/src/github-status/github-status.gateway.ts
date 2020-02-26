@@ -5,8 +5,9 @@ import {
     WebSocketGateway,
     OnGatewayInit,
     SubscribeMessage,
+    ConnectedSocket,
 } from '@nestjs/websockets';
-import { Inject, Logger } from '@nestjs/common';
+import { Inject } from '@nestjs/common';
 
 export const NAMESPACE = 'github-status';
 
@@ -17,8 +18,6 @@ export const EVENTS = {
 
 @WebSocketGateway(SOCKET_IO_PORT, { namespace: NAMESPACE })
 export class GithubStatusGateway implements OnGatewayInit<Server> {
-    private readonly logger: Logger = new Logger(GithubStatusGateway.name);
-
     @Inject()
     private readonly githubStatusService: GithubStatusService;
 
@@ -33,10 +32,7 @@ export class GithubStatusGateway implements OnGatewayInit<Server> {
     }
 
     @SubscribeMessage(EVENTS.GET_METRICS)
-    onGetMetrics(client: Socket) {
-        const { logger, githubStatusService } = this;
-
-        logger.log(`[${EVENTS.GET_METRICS}] `);
-        client.emit(EVENTS.METRICS_CHANGED, githubStatusService.value);
+    onGetMetrics(@ConnectedSocket() client: Socket) {
+        client.emit(EVENTS.METRICS_CHANGED, this.githubStatusService.value);
     }
 }

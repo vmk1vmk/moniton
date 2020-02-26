@@ -113,7 +113,7 @@ function checkParametersMock<Value = any>(
 
     values
         .slice(0, -1)
-        .forEach(() => mockEventCallback.mockImplementationOnce(() => {}));
+        .forEach(() => mockEventCallback.mockImplementationOnce(jest.fn()));
     mockEventCallback.mockImplementationOnce(() => {
         expect(mockEventCallback.mock.calls).toEqual(
             values.map(value => [value]),
